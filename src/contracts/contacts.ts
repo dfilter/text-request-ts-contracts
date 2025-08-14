@@ -5,7 +5,7 @@ import { dashboardIdPathParamsSchema, dashboardIdPhoneNumberParamsSchema, errorR
 
 const contract = initContract();
 
-export const contactContract = contract.router({
+const contactContract = contract.router({
   upsertCollection: {
     method: "POST",
     path: "/:dashboardId/contacts",
@@ -85,3 +85,5 @@ export const contactContract = contract.router({
 }, {
   pathPrefix: "/dashboards",
 });
+
+export default contactContract;
