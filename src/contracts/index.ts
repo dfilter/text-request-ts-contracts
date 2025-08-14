@@ -8,6 +8,7 @@ import conversationContract from "./conversations.js";
 import userContract from "./users.js";
 import keywordContract from "./keyword.js";
 import paymentContract from "./payment.js";
+import reviewContract from "./reviews.js";
 
 const contract = initContract();
 
@@ -22,6 +23,7 @@ const textRequestContract = contract.router(
     user: userContract,
     keyword: keywordContract,
     payment: paymentContract,
+    review: reviewContract,
   },
   {
     pathPrefix: "/api/v3",

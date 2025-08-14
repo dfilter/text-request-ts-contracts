@@ -1,0 +1,52 @@
+import { initContract } from "@ts-rest/core";
+import {
+  dashboardIdPathParamsSchema,
+  errorResponseSchema,
+  unknownResponseSchema,
+} from "../lib/zod/common.schemas.js";
+import {
+  campaignCollectionSchema,
+  campaignPathParamSchema,
+  campaignSchema,
+  reviewCollectionSchema,
+  reviewQuerySchema,
+} from "../lib/zod/review.schemas.js";
+
+const contract = initContract();
+
+const reviewContract = contract.router({
+  reviews: {
+    method: "GET",
+    path: "/dashboards/:dashboardId/reviews",
+    pathParams: dashboardIdPathParamsSchema,
+    query: reviewQuerySchema,
+    responses: {
+      200: reviewCollectionSchema,
+      400: errorResponseSchema,
+      401: errorResponseSchema,
+    },
+  },
+  campaigns: {
+    method: "GET",
+    path: "/dashboards/:dashboardId/campaingns",
+    pathParams: dashboardIdPathParamsSchema,
+    query: campaignCollectionSchema,
+    responses: {
+      200: reviewCollectionSchema,
+      400: errorResponseSchema,
+      401: errorResponseSchema,
+    },
+  },
+  getCampaign: {
+    method: "GET",
+    path: "/dashboards/:dashboardId/campaingns/:campaign_id",
+    pathParams: campaignPathParamSchema,
+    responses: {
+      200: campaignSchema,
+      204: unknownResponseSchema,
+      401: errorResponseSchema,
+    },
+  },
+});
+
+export default reviewContract;
