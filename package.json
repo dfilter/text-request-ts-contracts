@@ -1,16 +1,25 @@
 {
-  "name": "text-request-ts-client",
+  "name": "text-request-ts-contracts",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "Type-safe HTTP contracts for Text Request API using zod and ts-rest.",
   "type": "module",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Http Client",
+    "Client",
+    "Typescript",
+    "Zod",
+    "Type Safe",
+    "Text Request",
+    "text-request",
+    "text request"
+  ],
+  "author": "Dirk Filter",
+  "license": "MIT",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@types/node": "^24.2.1",

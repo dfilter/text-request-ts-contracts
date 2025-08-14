@@ -13,7 +13,7 @@ import webhookContract from "./webhooks.js";
 
 const contract = initContract();
 
-const textRequestContract = contract.router(
+export const textRequestContract = contract.router(
   {
     contact: contactContract,
     customField: customFieldContract,
@@ -45,5 +45,3 @@ export {
   reviewContract,
   webhookContract,
 };
-
-export default textRequestContract;
