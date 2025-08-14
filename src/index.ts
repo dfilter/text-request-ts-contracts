@@ -10,4 +10,6 @@ function initClient(apiKey: string) {
   });
 }
 
+export { textRequestContract };
+
 export default initClient;
