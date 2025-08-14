@@ -4,6 +4,7 @@ import customFieldContract from "./custom-fields.js";
 import messageContract from "./messages.js";
 import groupContract from "./groups.js";
 import dashboardContract from "./dashboards.js";
+import conversationContract from "./conversations.js";
 
 const contract = initContract();
 
@@ -13,6 +14,7 @@ const textRequestContract = contract.router({
   message: messageContract,
   group: groupContract,
   dashboard: dashboardContract,
+  conversation: conversationContract,
 }, {
   pathPrefix: "/api/v3"
 });

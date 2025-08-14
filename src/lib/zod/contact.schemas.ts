@@ -1,7 +1,7 @@
 import { z } from "zod"
 
 import { messageSchema } from "./message.schemas.js";
-import { collectionMetaSchema } from "./common.schemas.js";
+import { collectionMetaSchema, preprocessArrayToCommaSepratedString } from "./common.schemas.js";
 import { contactCustomFieldSchema } from "./custom-field.schemas.js";
 
 export const contactQueryParamsSchema = z.object({
@@ -10,7 +10,7 @@ export const contactQueryParamsSchema = z.object({
   contact_created_after: z.date().optional(),
   contact_created_before: z.date().optional(),
   contact_phone_number: z.string().optional(),
-  groups: z.array(z.number().int().gt(0)).optional(),
+  groups: preprocessArrayToCommaSepratedString(z.number().int().gt(0)).optional(),
   has_message_history: z.boolean().optional(),
   has_opted_out: z.boolean().optional(),
   is_archived: z.boolean().optional(),
@@ -23,7 +23,7 @@ export const contactQueryParamsSchema = z.object({
   last_message_sent_before: z.date().optional(),
   last_message_timestamp_after_utc: z.date().optional(),
   last_message_timestamp_before_utc: z.date().optional(),
-  tags: z.array(z.string()).optional(),
+  tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
 });
 
 export const contactSchema = z.object({

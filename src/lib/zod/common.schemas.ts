@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z, ZodSchema } from "zod";
 
 export const apiKeySchema = z.string();
 
@@ -20,3 +20,5 @@ export const paginationQuerySchema = z.object({
   page: z.number(),
   page_size: z.number(),
 });
+
+export const preprocessArrayToCommaSepratedString = <T extends ZodSchema>(schema: T) => z.preprocess((value) => Array.isArray(value) ? value.join(",") : value, schema);
