@@ -1,30 +1,35 @@
-import { z } from "zod"
+import { z } from "zod";
 
 import { messageSchema } from "./message.schemas.js";
-import { collectionMetaSchema, preprocessArrayToCommaSepratedString } from "./common.schemas.js";
+import {
+  collectionMetaSchema,
+  preprocessArrayToCommaSepratedString,
+} from "./common.schemas.js";
 import { contactCustomFieldSchema } from "./custom-field.schemas.js";
 
-export const contactQueryParamsSchema = z.object({
-  page: z.number().int().gte(0).optional(),
-  page_size: z.number().int().gt(0).optional(),
-  contact_created_after: z.date().optional(),
-  contact_created_before: z.date().optional(),
-  contact_phone_number: z.string().optional(),
-  groups: preprocessArrayToCommaSepratedString(z.number().int().gt(0)).optional(),
-  has_message_history: z.boolean().optional(),
-  has_opted_out: z.boolean().optional(),
-  is_archived: z.boolean().optional(),
-  is_blocked: z.boolean().optional(),
-  is_resolved: z.boolean().optional(),
-  is_suppressed: z.boolean().optional(),
-  last_message_received_after: z.date().optional(),
-  last_message_received_before: z.date().optional(),
-  last_message_sent_after: z.date().optional(),
-  last_message_sent_before: z.date().optional(),
-  last_message_timestamp_after_utc: z.date().optional(),
-  last_message_timestamp_before_utc: z.date().optional(),
-  tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
-});
+export const contactQueryParamsSchema = z
+  .object({
+    page: z.number().int().gte(0),
+    page_size: z.number().int().gt(0),
+    contact_created_after: z.date(),
+    contact_created_before: z.date(),
+    contact_phone_number: z.string(),
+    groups: preprocessArrayToCommaSepratedString(z.number().int().gt(0)),
+    has_message_history: z.boolean(),
+    has_opted_out: z.boolean(),
+    is_archived: z.boolean(),
+    is_blocked: z.boolean(),
+    is_resolved: z.boolean(),
+    is_suppressed: z.boolean(),
+    last_message_received_after: z.date(),
+    last_message_received_before: z.date(),
+    last_message_sent_after: z.date(),
+    last_message_sent_before: z.date(),
+    last_message_timestamp_after_utc: z.date(),
+    last_message_timestamp_before_utc: z.date(),
+    tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
+  })
+  .partial();
 
 export const contactSchema = z.object({
   phone_number: z.string(),

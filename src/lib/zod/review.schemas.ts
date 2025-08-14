@@ -12,9 +12,13 @@ export const reviewQuerySchema = paginationQuerySchema
   })
   .partial();
 
+export const platform = z.enum(["Google", "Facebook", "Text Request"]);
+
+export const source = z.enum(["organic", "requested"]);
+
 export const reviewSchema = z.object({
   id: z.number(),
-  platform: z.string(),
+  platform,
   review_date_utc: z.coerce.date(),
   review_message: z.string(),
   reviewer_name: z.string(),
@@ -22,7 +26,7 @@ export const reviewSchema = z.object({
   is_positive_recommendation: z.boolean().nullable(),
   reponse_message: z.string().nullable(),
   response_utc: z.coerce.date().nullable(),
-  source: z.string(),
+  source,
   campaign_id: z.number().nullable(),
   campaign_name: z.string().nullable(),
 });

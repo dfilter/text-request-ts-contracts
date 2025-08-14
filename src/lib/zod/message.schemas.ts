@@ -1,6 +1,9 @@
-import crypto from "node:crypto";
 import { z } from "zod";
-import { collectionMetaSchema, paginationQuerySchema } from "./common.schemas.js";
+import {
+  collectionMetaSchema,
+  paginationQuerySchema,
+  preprocessUuid,
+} from "./common.schemas.js";
 
 export const messageStatusEnum = z.enum([
   "accepted",
@@ -13,17 +16,14 @@ export const messageStatusEnum = z.enum([
   "undelivered",
   "delivered",
   "unclaimed",
-]); 
+]);
+
+export const messageDirection = z.enum(["R", "S"]);
 
 export const messageSchema = z.object({
-  message_id: z.string()
-    .nullable()
-    .transform((message_id) => typeof message_id === "string" && message_id !== ""
-      ? message_id
-      : crypto.randomUUID()
-    ),
+  message_id: preprocessUuid(z.string()),
   body: z.string(),
-  message_direction: z.enum(["R", "S"]),
+  message_direction: messageDirection,
   response_by_username: z.string().nullable(),
   message_timestamp_utc: z.string(),
   delivery_status: messageStatusEnum.nullable(),
@@ -73,9 +73,11 @@ export const createContactMessageSchema = z.object({
   mms_media: z.string().url().array().optional(),
 });
 
-export const messageQuerySchema = paginationQuerySchema.extend({ 
-  start_date: z.string().datetime(), 
-  end_date: z.string().datetime() 
-}).optional();
+export const messageQuerySchema = paginationQuerySchema
+  .extend({
+    start_date: z.string().datetime(),
+    end_date: z.string().datetime(),
+  })
+  .optional();
 
 export const messageIdParamSchema = z.object({ messageId: z.string() });
