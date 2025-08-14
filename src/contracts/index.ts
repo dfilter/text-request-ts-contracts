@@ -7,20 +7,25 @@ import dashboardContract from "./dashboards.js";
 import conversationContract from "./conversations.js";
 import userContract from "./users.js";
 import keywordContract from "./keyword.js";
+import paymentContract from "./payment.js";
 
 const contract = initContract();
 
-const textRequestContract = contract.router({
-  contact: contactContract,
-  customField: customFieldContract,
-  message: messageContract,
-  group: groupContract,
-  dashboard: dashboardContract,
-  conversation: conversationContract,
-  user: userContract,
-  keyword: keywordContract,
-}, {
-  pathPrefix: "/api/v3"
-});
+const textRequestContract = contract.router(
+  {
+    contact: contactContract,
+    customField: customFieldContract,
+    message: messageContract,
+    group: groupContract,
+    dashboard: dashboardContract,
+    conversation: conversationContract,
+    user: userContract,
+    keyword: keywordContract,
+    payment: paymentContract,
+  },
+  {
+    pathPrefix: "/api/v3",
+  },
+);
 
 export default textRequestContract;
