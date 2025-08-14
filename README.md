@@ -1,2 +1,2 @@
 # text-request-ts-client
-A typesafe client for the Text Request Client
+A typesafe client for the Text Request REST API
