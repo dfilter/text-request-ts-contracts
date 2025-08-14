@@ -9,6 +9,7 @@ import userContract from "./users.js";
 import keywordContract from "./keyword.js";
 import paymentContract from "./payment.js";
 import reviewContract from "./reviews.js";
+import webhookContract from "./webhooks.js";
 
 const contract = initContract();
 
@@ -24,6 +25,7 @@ const textRequestContract = contract.router(
     keyword: keywordContract,
     payment: paymentContract,
     review: reviewContract,
+    webook: webhookContract,
   },
   {
     pathPrefix: "/api/v3",
