@@ -19,6 +19,6 @@ export const collectionMetaSchema = z.object({ page: z.number(), page_size: z.nu
 export const paginationQuerySchema = z.object({
   page: z.number(),
   page_size: z.number(),
-});
+}).partial();
 
 export const preprocessArrayToCommaSepratedString = <T extends ZodSchema>(schema: T) => z.preprocess((value) => Array.isArray(value) ? value.join(",") : value, schema);

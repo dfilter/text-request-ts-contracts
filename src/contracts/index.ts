@@ -6,6 +6,7 @@ import groupContract from "./groups.js";
 import dashboardContract from "./dashboards.js";
 import conversationContract from "./conversations.js";
 import userContract from "./users.js";
+import keywordContract from "./keyword.js";
 
 const contract = initContract();
 
@@ -17,6 +18,7 @@ const textRequestContract = contract.router({
   dashboard: dashboardContract,
   conversation: conversationContract,
   user: userContract,
+  keyword: keywordContract,
 }, {
   pathPrefix: "/api/v3"
 });
