@@ -22,7 +22,7 @@ const contactContract = contract.router(
       method: "POST",
       path: "/:dashboard_id/contacts",
       pathParams: dashboardIdPathParamsSchema,
-      body: contactSchema.array(),
+      body: contactSchema.partial().array(),
       responses: {
         200: fullContactSchema.array(),
         400: errorResponseSchema,
@@ -37,7 +37,7 @@ const contactContract = contract.router(
       method: "POST",
       path: "/:dashboard_id/contacts/:phone_number",
       pathParams: dashboardIdPhoneNumberParamsSchema,
-      body: contactSchema,
+      body: contactSchema.partial(),
       responses: {
         200: fullContactSchema,
         400: errorResponseSchema,
