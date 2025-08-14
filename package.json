@@ -1,0 +1,23 @@
+{
+  "name": "text-request-ts-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@ts-rest/core": "^3.52.1",
+    "undici-types": "^7.13.0",
+    "zod": "^3.22.3"
+  }
+}
