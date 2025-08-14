@@ -77,3 +77,5 @@ export const messageQuerySchema = paginationQuerySchema.extend({
   start_date: z.string().datetime(), 
   end_date: z.string().datetime() 
 }).optional();
+
+export const messageIdParamSchema = z.object({ messageId: z.string() });

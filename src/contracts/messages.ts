@@ -1,7 +1,5 @@
 import { initContract } from "@ts-rest/core";
-import { createContactMessageSchema, createMessageResponseSchema, messageCollectionSchema, messageCreateSchema, messageSchema } from "../lib/zod/message.schemas.js";
-import { mmsErrorMessageSchema } from "../lib/zod/message.schemas.js";
-import { mmsResponseSchema } from "../lib/zod/message.schemas.js";
+import { createContactMessageSchema, createMessageResponseSchema, messageCollectionSchema, messageCreateSchema, messageIdParamSchema, messageSchema, mmsErrorMessageSchema, mmsResponseSchema } from "../lib/zod/message.schemas.js";
 import { dashboardIdPathParamsSchema, dashboardIdPhoneNumberParamsSchema, errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas.js";
 
 const contract = initContract();
@@ -22,7 +20,7 @@ const messageContract = contract.router({
   },
   send: {
     method: "POST",
-    path: "/message",
+    path: "/messages",
     body: messageCreateSchema,
     responses: {
       200: createMessageResponseSchema,
@@ -68,7 +66,31 @@ const messageContract = contract.router({
     },
     summary: "Get all messages for a dashboard.",
     description: "Retrieves the text messages sent and received in the specified dashboard. Optionally, can provide a start and end date to filter the message history by. Messages will always be sorted from oldest to newest"
-  }
+  },
+  redact: {
+    method: "PUT",
+    path: "/messages/:messageId/redact",
+    pathParams: messageIdParamSchema,
+    body: contract.noBody(),
+    responses: {
+      200: unknownResponseSchema,
+      401: errorResponseSchema,
+    },
+    summary: "Redact a message",
+    description: "Redacts a previously sent message in the Text Request queue. This does not undo sending the message, but hides the message body on Text Request's side in case the message body contains sensitive information. This operation can be undone with the /messages/{message_id}/unredact endpoint."
+  },
+  unredact: {
+    method: "PUT",
+    path: "/messages/:messageId/unredact",
+    pathParams: messageIdParamSchema,
+    body: contract.noBody(),
+    responses: {
+      200: unknownResponseSchema,
+      401: errorResponseSchema,
+    },
+    summary: "Unredact a message",
+    description: "Removes the redaction on a previously redacted message in the Text Request queue. See the /messages/{message_id}/redact endpoint."
+  },
 });
 
 export default messageContract;
