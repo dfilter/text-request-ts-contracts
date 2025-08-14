@@ -18,7 +18,7 @@ const contract = initContract();
 const webhookContract = contract.router({
   create: {
     method: "POST",
-    path: "/dashboards/:dashboardId/hooks",
+    path: "/dashboards/:dashboard_id/hooks",
     pathParams: dashboardIdPathParamsSchema,
     body: webhookCreateSchema,
     responses: {
@@ -38,7 +38,7 @@ const webhookContract = contract.router({
   },
   collection: {
     method: "GET",
-    path: "/dashboards/:dashboardId/hooks",
+    path: "/dashboards/:dashboard_id/hooks",
     pathParams: dashboardIdPathParamsSchema,
     query: paginationQuerySchema,
     responses: {
@@ -48,7 +48,7 @@ const webhookContract = contract.router({
   },
   update: {
     method: "PUT",
-    path: "/dashboards/:dashboardId/hooks/:webhook_id",
+    path: "/dashboards/:dashboard_id/hooks/:webhook_id",
     pathParams: webhookPathParams,
     body: contract.noBody(),
     responses: {
@@ -58,7 +58,7 @@ const webhookContract = contract.router({
   },
   delete: {
     method: "DELETE",
-    path: "/dashboards/:dashboardId/hooks/:webhook_id",
+    path: "/dashboards/:dashboard_id/hooks/:webhook_id",
     pathParams: webhookPathParams,
     responses: {
       204: unknownResponseSchema,

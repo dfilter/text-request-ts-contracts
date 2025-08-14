@@ -1,6 +1,16 @@
 import { initContract } from "@ts-rest/core";
-import { dashboardCollectionSchema, dashboardSchema, privisioningQuerySchema, provisioningResponseSchema } from "../lib/zod/dashboard.schemas.js";
-import { dashboardIdPathParamsSchema, errorResponseSchema, paginationQuerySchema, unknownResponseSchema } from "../lib/zod/common.schemas.js";
+import {
+  dashboardCollectionSchema,
+  dashboardSchema,
+  privisioningQuerySchema,
+  provisioningResponseSchema,
+} from "../lib/zod/dashboard.schemas.js";
+import {
+  dashboardIdPathParamsSchema,
+  errorResponseSchema,
+  paginationQuerySchema,
+  unknownResponseSchema,
+} from "../lib/zod/common.schemas.js";
 
 const contract = initContract();
 
@@ -13,7 +23,7 @@ const dashboardContract = contract.router({
       200: dashboardSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   collection: {
     method: "GET",
@@ -22,17 +32,17 @@ const dashboardContract = contract.router({
     responses: {
       200: dashboardCollectionSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   get: {
     method: "GET",
-    path: "/dashboards/:dashboardId",
+    path: "/dashboards/:dashboard_id",
     pathParams: dashboardIdPathParamsSchema,
     responses: {
       200: dashboardSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   provisioning: {
     method: "GET",
@@ -42,29 +52,29 @@ const dashboardContract = contract.router({
       200: provisioningResponseSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   update: {
     method: "PUT",
-    path: "/dashboards/:dashboardId",
+    path: "/dashboards/:dashboard_id",
     pathParams: dashboardIdPathParamsSchema,
     body: dashboardSchema.omit({ id: true, phone: true }),
     responses: {
       200: dashboardSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   delete: {
     method: "DELETE",
-    path: "/dashboards/:dashboardId",
+    path: "/dashboards/:dashboard_id",
     pathParams: dashboardIdPathParamsSchema,
     responses: {
       204: unknownResponseSchema,
       400: unknownResponseSchema,
       401: errorResponseSchema,
       404: unknownResponseSchema,
-    }
-  }
+    },
+  },
 });
 
 export default dashboardContract;

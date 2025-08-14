@@ -10,6 +10,7 @@ function initClient(apiKey: string) {
   });
 }
 
-export { textRequestContract };
+export * from "./contracts/index.js";
+export * from "./lib/zod/index.js";
 
 export default initClient;

@@ -18,7 +18,7 @@ const contract = initContract();
 const paymentContract = contract.router({
   create: {
     method: "POST",
-    path: "/dashboards/:dashboardId/payments",
+    path: "/dashboards/:dashboard_id/payments",
     pathParams: dashboardIdPathParamsSchema,
     body: paymentCreateSchema,
     responses: {
@@ -29,7 +29,7 @@ const paymentContract = contract.router({
   },
   markAsPaid: {
     method: "POST",
-    path: "/dashboards/:dashboardId/payments/:payment_id/mark_as_paid",
+    path: "/dashboards/:dashboard_id/payments/:payment_id/mark_as_paid",
     pathParams: paymentPathParamSchema,
     body: contract.noBody(),
     responses: {
@@ -40,7 +40,7 @@ const paymentContract = contract.router({
   },
   cancel: {
     method: "POST",
-    path: "/dashboards/:dashboardId/payments/:payment_id/cancel",
+    path: "/dashboards/:dashboard_id/payments/:payment_id/cancel",
     pathParams: paymentPathParamSchema,
     body: contract.noBody(),
     responses: {
@@ -51,7 +51,7 @@ const paymentContract = contract.router({
   },
   resend: {
     method: "POST",
-    path: "/dashboards/:dashboardId/payments/:payment_id/resend",
+    path: "/dashboards/:dashboard_id/payments/:payment_id/resend",
     pathParams: paymentPathParamSchema,
     body: contract.noBody(),
     responses: {
@@ -62,7 +62,7 @@ const paymentContract = contract.router({
   },
   activatePayments: {
     method: "POST",
-    path: "/dashboards/:dashboardId/activate_payments",
+    path: "/dashboards/:dashboard_id/activate_payments",
     pathParams: dashboardIdPathParamsSchema,
     body: activatePaymentSchema,
     responses: {
@@ -73,7 +73,7 @@ const paymentContract = contract.router({
   },
   collection: {
     method: "GET",
-    path: "/dashboards/:dashboardId/payments",
+    path: "/dashboards/:dashboard_id/payments",
     pathParams: dashboardIdPathParamsSchema,
     query: paymentQuerySchema,
     responses: {
@@ -84,7 +84,7 @@ const paymentContract = contract.router({
   },
   get: {
     method: "GET",
-    path: "/dashbords/:dashboardId/payments/:payment_id",
+    path: "/dashbords/:dashboard_id/payments/:payment_id",
     pathParams: paymentPathParamSchema,
     responses: {
       200: paymentSchema,

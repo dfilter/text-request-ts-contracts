@@ -30,6 +30,7 @@ export const contactQueryParamsSchema = z
     tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
   })
   .partial();
+export type ContactQuery = z.infer<typeof contactQueryParamsSchema>;
 
 export const contactSchema = z.object({
   phone_number: z.string(),
@@ -47,6 +48,7 @@ export const contactSchema = z.object({
   custom_fields: contactCustomFieldSchema.array(),
   is_resolved: z.boolean(),
 });
+export type Contact = z.infer<typeof contactSchema>;
 
 export const fullContactSchema = contactSchema.extend({
   first_contact_utc: z.coerce.date().nullable(),
@@ -60,11 +62,13 @@ export const fullContactSchema = contactSchema.extend({
   last_contact_date_utc: z.coerce.date().nullable(),
   last_message: messageSchema.nullable(),
 });
+export type FullContact = z.infer<typeof fullContactSchema>;
 
 export const contactsCollectionSchema = z.object({
   items: z.array(fullContactSchema),
   meta: collectionMetaSchema,
 });
+export type ContactCollection = z.infer<typeof contactsCollectionSchema>;
 
 export const contactUpdateFields = z.object({
   groups: z.array(z.number()),
@@ -74,3 +78,4 @@ export const contactUpdateFields = z.object({
   custom_field_id: z.string(),
   custom_field_value: z.string(),
 });
+export type ContactUpdate = z.infer<typeof contactUpdateFields>;

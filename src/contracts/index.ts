@@ -32,4 +32,18 @@ const textRequestContract = contract.router(
   },
 );
 
+export {
+  contactContract,
+  customFieldContract,
+  messageContract,
+  groupContract,
+  dashboardContract,
+  conversationContract,
+  userContract,
+  keywordContract,
+  paymentContract,
+  reviewContract,
+  webhookContract,
+};
+
 export default textRequestContract;

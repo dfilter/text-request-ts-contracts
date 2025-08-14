@@ -10,11 +10,13 @@ export const converasation = z.object({
   phone_number: z.string(),
   last_message: messageSchema,
 });
+export type Conversation = z.infer<typeof converasation>;
 
 export const conversationCollection = z.object({
   items: z.array(converasation),
   meta: collectionMetaSchema,
 });
+export type ConversationCollection = z.infer<typeof conversationCollection>;
 
 export const conversationQuerySchema = paginationQuerySchema
   .extend({
@@ -24,3 +26,4 @@ export const conversationQuerySchema = paginationQuerySchema
     tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
   })
   .partial();
+export type ConversationQuery = z.infer<typeof conversationQuerySchema>;
