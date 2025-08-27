@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { collectionMetaSchema } from "./common.schemas.js";
+import { collectionMetaSchema } from "./common.schemas";
 
 export const tagSchema = z.object({
   id: z.string(),

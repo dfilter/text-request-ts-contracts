@@ -1,15 +1,15 @@
 import { initContract } from "@ts-rest/core";
-import contactContract from "./contacts.js";
-import customFieldContract from "./custom-fields.js";
-import messageContract from "./messages.js";
-import groupContract from "./groups.js";
-import dashboardContract from "./dashboards.js";
-import conversationContract from "./conversations.js";
-import userContract from "./users.js";
-import keywordContract from "./keyword.js";
-import paymentContract from "./payment.js";
-import reviewContract from "./reviews.js";
-import webhookContract from "./webhooks.js";
+import contactContract from "./contacts";
+import customFieldContract from "./custom-fields";
+import messageContract from "./messages";
+import groupContract from "./groups";
+import dashboardContract from "./dashboards";
+import conversationContract from "./conversations";
+import userContract from "./users";
+import keywordContract from "./keyword";
+import paymentContract from "./payment";
+import reviewContract from "./reviews";
+import webhookContract from "./webhooks";
 
 const contract = initContract();
 

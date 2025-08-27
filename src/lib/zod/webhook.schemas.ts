@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   collectionMetaSchema,
   dashboardIdPathParamsSchema,
-} from "./common.schemas.js";
+} from "./common.schemas";
 
 export const eventTypeSchema = z.array(z.string());
 

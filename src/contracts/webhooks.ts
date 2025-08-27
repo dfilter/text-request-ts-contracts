@@ -5,13 +5,13 @@ import {
   webhookPathParams,
   webhookSchema,
   webookCollectionSchema,
-} from "../lib/zod/webhook.schemas.js";
+} from "../lib/zod/webhook.schemas";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   paginationQuerySchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 
 const contract = initContract();
 

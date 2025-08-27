@@ -3,7 +3,7 @@ import {
   collectionMetaSchema,
   dashboardIdPathParamsSchema,
   paginationQuerySchema,
-} from "./common.schemas.js";
+} from "./common.schemas";
 import { describe } from "node:test";
 
 export const sortTypeSchema = z.enum(["amount", "contact", "date", "status"]);

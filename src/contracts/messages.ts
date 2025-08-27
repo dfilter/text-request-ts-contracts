@@ -1,7 +1,7 @@
 import { initContract } from "@ts-rest/core";
-import { createContactMessageSchema, createMessageResponseSchema, messageCollectionSchema, messageCreateSchema, messageIdParamSchema, messageSchema, mmsErrorMessageSchema, mmsResponseSchema } from "../lib/zod/message.schemas.js";
-import { dashboardIdPathParamsSchema, dashboardIdPhoneNumberParamsSchema, errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas.js";
-import { commonContract } from "./common.js";
+import { createContactMessageSchema, createMessageResponseSchema, messageCollectionSchema, messageCreateSchema, messageIdParamSchema, messageSchema, mmsErrorMessageSchema, mmsResponseSchema } from "../lib/zod/message.schemas";
+import { dashboardIdPathParamsSchema, dashboardIdPhoneNumberParamsSchema, errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas";
+import { commonContract } from "./common";
 
 const contract = initContract();
 

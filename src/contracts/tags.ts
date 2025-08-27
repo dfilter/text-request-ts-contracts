@@ -5,8 +5,8 @@ import {
   errorResponseSchema,
   paginationQuerySchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
-import { tagCollectionSchema, tagSchema } from "../lib/zod/tag.schemas.js";
+} from "../lib/zod/common.schemas";
+import { tagCollectionSchema, tagSchema } from "../lib/zod/tag.schemas";
 
 const contract = initContract();
 

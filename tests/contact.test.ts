@@ -2,12 +2,12 @@ import { initClient } from "@ts-rest/core";
 import { test, describe, expect } from "vitest";
 import { z } from "zod";
 
-import { env } from "./env.js";
+import { env } from "./env";
 import {
   contactSchema,
   contactsCollectionSchema,
-} from "../lib/zod/contact.schemas.js";
-import contactContract from "../contracts/contacts.js";
+} from "../lib/zod/contact.schemas";
+import contactContract from "../contracts/contacts";
 
 describe.concurrent("contactContract contract", () => {
   const client = initClient(contactContract, {

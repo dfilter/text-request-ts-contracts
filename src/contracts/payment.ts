@@ -3,7 +3,7 @@ import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 import {
   activatePaymentSchema,
   paymentCollectionSchema,
@@ -11,7 +11,7 @@ import {
   paymentPathParamSchema,
   paymentQuerySchema,
   paymentSchema,
-} from "../lib/zod/payment.schema.js";
+} from "../lib/zod/payment.schema";
 
 const contract = initContract();
 

@@ -3,7 +3,7 @@ import {
   collectionMetaSchema,
   paginationQuerySchema,
   preprocessUuid,
-} from "./common.schemas.js";
+} from "./common.schemas";
 
 export const messageStatusEnum = z.enum([
   "accepted",

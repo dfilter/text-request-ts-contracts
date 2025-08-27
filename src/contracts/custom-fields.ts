@@ -4,8 +4,8 @@ import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
-import { customFieldSchema } from "../lib/zod/custom-field.schemas.js";
+} from "../lib/zod/common.schemas";
+import { customFieldSchema } from "../lib/zod/custom-field.schemas";
 
 const contract = initContract();
 

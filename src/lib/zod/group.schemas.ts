@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   collectionMetaSchema,
   dashboardIdPathParamsSchema,
-} from "./common.schemas.js";
+} from "./common.schemas";
 
 export const groupSchema = z.object({
   id: z.number(),

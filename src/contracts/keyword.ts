@@ -4,13 +4,13 @@ import {
   errorResponseSchema,
   paginationQuerySchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 import {
   createKeywordSchema,
   keywordCollectionSchema,
   keywordPathParamSchema,
   keywordSchema,
-} from "../lib/zod/keyword.schemas.js";
+} from "../lib/zod/keyword.schemas";
 
 const contract = initContract();
 

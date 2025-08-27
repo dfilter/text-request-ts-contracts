@@ -1,6 +1,6 @@
 import { initContract } from "@ts-rest/core";
-import { createUserSchema, userCollectionSchema, userIdPathParamSchema, userQuerySchema, userSchema } from "../lib/zod/user.schemas.js";
-import { errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas.js";
+import { createUserSchema, userCollectionSchema, userIdPathParamSchema, userQuerySchema, userSchema } from "../lib/zod/user.schemas";
+import { errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas";
 
 const contract = initContract();
 

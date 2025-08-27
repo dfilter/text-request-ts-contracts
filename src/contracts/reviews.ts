@@ -3,14 +3,14 @@ import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 import {
   campaignCollectionSchema,
   campaignPathParamSchema,
   campaignSchema,
   reviewCollectionSchema,
   reviewQuerySchema,
-} from "../lib/zod/review.schemas.js";
+} from "../lib/zod/review.schemas";
 
 const contract = initContract();
 

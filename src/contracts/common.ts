@@ -4,12 +4,12 @@ import {
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 import {
   createContactMessageSchema,
   messageCollectionSchema,
   messageSchema,
-} from "../lib/zod/message.schemas.js";
+} from "../lib/zod/message.schemas";
 
 const contract = initContract();
 

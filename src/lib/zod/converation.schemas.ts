@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { messageSchema } from "./message.schemas.js";
+import { messageSchema } from "./message.schemas";
 import {
   collectionMetaSchema,
   paginationQuerySchema,
   preprocessArrayToCommaSepratedString,
-} from "./common.schemas.js";
+} from "./common.schemas";
 
 export const converasation = z.object({
   phone_number: z.string(),

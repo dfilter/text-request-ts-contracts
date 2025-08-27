@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-import { messageSchema } from "./message.schemas.js";
+import { messageSchema } from "./message.schemas";
 import {
   collectionMetaSchema,
   preprocessArrayToCommaSepratedString,
-} from "./common.schemas.js";
-import { contactCustomFieldSchema } from "./custom-field.schemas.js";
+} from "./common.schemas";
+import { contactCustomFieldSchema } from "./custom-field.schemas";
 
 export const contactQueryParamsSchema = z
   .object({

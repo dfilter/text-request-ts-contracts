@@ -6,13 +6,13 @@ import {
   contactsCollectionSchema,
   contactSchema,
   contactUpdateFields,
-} from "../lib/zod/contact.schemas.js";
+} from "../lib/zod/contact.schemas";
 import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 
 const contract = initContract();
 

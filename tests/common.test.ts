@@ -2,13 +2,13 @@ import { initClient } from "@ts-rest/core";
 import { test, describe, expect, expectTypeOf, beforeAll } from "vitest";
 import { z } from "zod";
 
-import { env } from "./env.js";
-import { commonContract } from "../contracts/common.js";
+import { env } from "./env";
+import { commonContract } from "../contracts/common";
 import {
   contactSchema,
   contactsCollectionSchema,
-} from "../lib/zod/contact.schemas.js";
-import { createContactMessageSchema } from "../lib/zod/message.schemas.js";
+} from "../lib/zod/contact.schemas";
+import { createContactMessageSchema } from "../lib/zod/message.schemas";
 
 describe.concurrent("common contract", () => {
   const client = initClient(commonContract, {

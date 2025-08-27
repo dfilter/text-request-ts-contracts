@@ -4,13 +4,13 @@ import {
   dashboardSchema,
   privisioningQuerySchema,
   provisioningResponseSchema,
-} from "../lib/zod/dashboard.schemas.js";
+} from "../lib/zod/dashboard.schemas";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   paginationQuerySchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 
 const contract = initContract();
 

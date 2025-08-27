@@ -4,12 +4,12 @@ import {
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
   unknownResponseSchema,
-} from "../lib/zod/common.schemas.js";
+} from "../lib/zod/common.schemas";
 import {
   conversationCollection,
   conversationQuerySchema,
-} from "../lib/zod/converation.schemas.js";
-import { commonContract } from "./common.js";
+} from "../lib/zod/converation.schemas";
+import { commonContract } from "./common";
 
 const contract = initContract();
 

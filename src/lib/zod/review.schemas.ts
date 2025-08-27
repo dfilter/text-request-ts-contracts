@@ -3,7 +3,7 @@ import {
   collectionMetaSchema,
   dashboardIdPathParamsSchema,
   paginationQuerySchema,
-} from "./common.schemas.js";
+} from "./common.schemas";
 
 export const reviewQuerySchema = paginationQuerySchema
   .extend({

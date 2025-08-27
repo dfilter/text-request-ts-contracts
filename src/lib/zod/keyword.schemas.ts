@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { collectionMetaSchema, dashboardIdPathParamsSchema } from "./common.schemas.js";
+import { collectionMetaSchema, dashboardIdPathParamsSchema } from "./common.schemas";
 
 export const keywordSchema = z.object({
   id: z.number().int().gt(0),
