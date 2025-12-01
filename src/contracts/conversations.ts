@@ -8,13 +8,13 @@ import {
 import {
   conversationCollection,
   conversationQuerySchema,
-} from "../lib/zod/converation.schemas";
+} from "../lib/zod/conversation.schemas";
 import { commonContract } from "./common";
 
 const contract = initContract();
 
 const conversationContract = contract.router({
-  create: commonContract.messageeContact,
+  create: commonContract.messageContact,
   collection: {
     method: "GET",
     path: "/dashboards/:dashboard_id/conversations",

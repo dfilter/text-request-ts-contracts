@@ -25,7 +25,7 @@ export const textRequestContract = contract.router(
     keyword: keywordContract,
     payment: paymentContract,
     review: reviewContract,
-    webook: webhookContract,
+    webhook: webhookContract,
   },
   {
     pathPrefix: "/api/v3",

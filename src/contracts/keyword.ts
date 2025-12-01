@@ -17,7 +17,7 @@ const contract = initContract();
 const keywordContract = contract.router({
   create: {
     method: "POST",
-    path: "/dashboards/:dashboard_id/keywoards",
+    path: "/dashboards/:dashboard_id/keywords",
     pathParams: dashboardIdPathParamsSchema,
     body: createKeywordSchema,
     responses: {

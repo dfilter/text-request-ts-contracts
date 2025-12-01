@@ -3,7 +3,7 @@ import { z } from "zod";
 import { messageSchema } from "./message.schemas";
 import {
   collectionMetaSchema,
-  preprocessArrayToCommaSepratedString,
+  preprocessArrayToCommaSeparatedString,
 } from "./common.schemas";
 import { contactCustomFieldSchema } from "./custom-field.schemas";
 
@@ -14,7 +14,7 @@ export const contactQueryParamsSchema = z
     contact_created_after: z.date(),
     contact_created_before: z.date(),
     contact_phone_number: z.string(),
-    groups: preprocessArrayToCommaSepratedString(z.number().int().gt(0)),
+    groups: preprocessArrayToCommaSeparatedString(z.number().int().gt(0)),
     has_message_history: z.boolean(),
     has_opted_out: z.boolean(),
     is_archived: z.boolean(),
@@ -27,7 +27,7 @@ export const contactQueryParamsSchema = z
     last_message_sent_before: z.date(),
     last_message_timestamp_after_utc: z.date(),
     last_message_timestamp_before_utc: z.date(),
-    tags: preprocessArrayToCommaSepratedString(z.string().uuid()),
+    tags: preprocessArrayToCommaSeparatedString(z.string().uuid()),
   })
   .partial();
 export type ContactQuery = z.infer<typeof contactQueryParamsSchema>;

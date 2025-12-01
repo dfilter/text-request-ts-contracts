@@ -6,7 +6,6 @@ import {
 } from "../lib/zod/common.schemas";
 import {
   activatePaymentSchema,
-  paymentCollectionSchema,
   paymentCreateSchema,
   paymentPathParamSchema,
   paymentQuerySchema,
@@ -84,7 +83,7 @@ const paymentContract = contract.router({
   },
   get: {
     method: "GET",
-    path: "/dashbords/:dashboard_id/payments/:payment_id",
+    path: "/dashboards/:dashboard_id/payments/:payment_id",
     pathParams: paymentPathParamSchema,
     responses: {
       200: paymentSchema,

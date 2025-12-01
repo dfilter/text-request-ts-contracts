@@ -28,7 +28,7 @@ const reviewContract = contract.router({
   },
   campaigns: {
     method: "GET",
-    path: "/dashboards/:dashboard_id/campaingns",
+    path: "/dashboards/:dashboard_id/campaigns",
     pathParams: dashboardIdPathParamsSchema,
     query: campaignCollectionSchema,
     responses: {
@@ -39,7 +39,7 @@ const reviewContract = contract.router({
   },
   getCampaign: {
     method: "GET",
-    path: "/dashboards/:dashboard_id/campaingns/:campaign_id",
+    path: "/dashboards/:dashboard_id/campaigns/:campaign_id",
     pathParams: campaignPathParamSchema,
     responses: {
       200: campaignSchema,

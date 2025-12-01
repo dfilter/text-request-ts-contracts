@@ -2,7 +2,7 @@ import { initContract } from "@ts-rest/core";
 import {
   dashboardCollectionSchema,
   dashboardSchema,
-  privisioningQuerySchema,
+  provisioningQuerySchema,
   provisioningResponseSchema,
 } from "../lib/zod/dashboard.schemas";
 import {
@@ -47,7 +47,7 @@ const dashboardContract = contract.router({
   provisioning: {
     method: "GET",
     path: "/dashboards/provisioning",
-    query: privisioningQuerySchema,
+    query: provisioningQuerySchema,
     responses: {
       200: provisioningResponseSchema,
       400: errorResponseSchema,

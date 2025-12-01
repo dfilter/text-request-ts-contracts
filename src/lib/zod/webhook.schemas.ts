@@ -28,7 +28,7 @@ export const webhookSchema = z.object({
   is_connected: z.boolean(),
 });
 
-export const webookCollectionSchema = z.object({
+export const webhookCollectionSchema = z.object({
   items: z.array(webhookSchema),
   meta: collectionMetaSchema,
 });

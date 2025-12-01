@@ -1,6 +1,6 @@
 export * from "./common.schemas";
 export * from "./contact.schemas";
-export * from "./converation.schemas";
+export * from "./conversation.schemas";
 export * from "./custom-field.schemas";
 export * from "./dashboard.schemas";
 export * from "./group.schemas";

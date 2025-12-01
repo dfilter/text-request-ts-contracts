@@ -4,7 +4,7 @@ import {
   webhookCreateSchema,
   webhookPathParams,
   webhookSchema,
-  webookCollectionSchema,
+  webhookCollectionSchema,
 } from "../lib/zod/webhook.schemas";
 import {
   dashboardIdPathParamsSchema,
@@ -42,7 +42,7 @@ const webhookContract = contract.router({
     pathParams: dashboardIdPathParamsSchema,
     query: paginationQuerySchema,
     responses: {
-      200: webookCollectionSchema,
+      200: webhookCollectionSchema,
       401: errorResponseSchema,
     },
   },

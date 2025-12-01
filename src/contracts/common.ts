@@ -14,7 +14,7 @@ import {
 const contract = initContract();
 
 export const commonContract = contract.router({
-  messageeContact: {
+  messageContact: {
     method: "POST",
     path: "/dashboards/:dashboard_id/contacts/:phone_number/messages",
     pathParams: dashboardIdPhoneNumberParamsSchema,

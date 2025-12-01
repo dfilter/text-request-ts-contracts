@@ -10,7 +10,7 @@ export type DashboardIdPathParams = z.infer<typeof dashboardIdPathParamsSchema>;
 
 export const dashboardIdFieldIdPathParamsSchema =
   dashboardIdPathParamsSchema.extend({ field_id: z.string() });
-export type DashboarFieldIdPathParams = z.infer<
+export type DashboardFieldIdPathParams = z.infer<
   typeof dashboardIdFieldIdPathParamsSchema
 >;
 
@@ -50,7 +50,7 @@ export const paginationQuerySchema = z
   .partial();
 export type PaginationQuery = z.infer<typeof paginationQuerySchema>;
 
-export const preprocessArrayToCommaSepratedString = <T extends ZodSchema>(
+export const preprocessArrayToCommaSeparatedString = <T extends ZodSchema>(
   schema: T,
 ) =>
   z.preprocess(

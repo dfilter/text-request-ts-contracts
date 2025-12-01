@@ -14,9 +14,9 @@ export const dashboardCollectionSchema = z.object({
 });
 export type DashboardCollection = z.infer<typeof dashboardCollectionSchema>;
 
-export const privisioningQuerySchema = z.object({
+export const provisioningQuerySchema = z.object({
   area_code: z.number().int().gte(0),
 });
-export type ProvisioningQuery = z.infer<typeof privisioningQuerySchema>;
+export type ProvisioningQuery = z.infer<typeof provisioningQuerySchema>;
 
 export const provisioningResponseSchema = z.array(z.string());
