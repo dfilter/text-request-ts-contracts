@@ -1,5 +1,5 @@
 import { v7 as uuidv7 } from "uuid";
-import { z, ZodSchema } from "zod";
+import { type ZodSchema, z } from "zod";
 
 export const apiKeySchema = z.string();
 

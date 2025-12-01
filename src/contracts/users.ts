@@ -1,6 +1,15 @@
 import { initContract } from "@ts-rest/core";
-import { createUserSchema, userCollectionSchema, userIdPathParamSchema, userQuerySchema, userSchema } from "../lib/zod/user.schemas";
-import { errorResponseSchema, unknownResponseSchema } from "../lib/zod/common.schemas";
+import {
+  createUserSchema,
+  userCollectionSchema,
+  userIdPathParamSchema,
+  userQuerySchema,
+  userSchema,
+} from "../lib/zod/user.schemas";
+import {
+  errorResponseSchema,
+  unknownResponseSchema,
+} from "../lib/zod/common.schemas";
 
 const contract = initContract();
 
@@ -13,7 +22,7 @@ const userContract = contract.router({
       200: userSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   collection: {
     method: "GET",
@@ -21,8 +30,8 @@ const userContract = contract.router({
     query: userQuerySchema,
     responses: {
       200: userCollectionSchema,
-      401: errorResponseSchema
-    }
+      401: errorResponseSchema,
+    },
   },
   get: {
     method: "GET",
@@ -32,7 +41,7 @@ const userContract = contract.router({
       200: userSchema,
       204: unknownResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   update: {
     method: "PUT",
@@ -43,7 +52,7 @@ const userContract = contract.router({
       200: userSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
-    }
+    },
   },
   delete: {
     method: "DELETE",
@@ -53,8 +62,8 @@ const userContract = contract.router({
       204: unknownResponseSchema,
       401: errorResponseSchema,
       404: unknownResponseSchema,
-    }
-  }
+    },
+  },
 });
 
 export default userContract;

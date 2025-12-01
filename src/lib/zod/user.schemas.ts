@@ -1,8 +1,5 @@
 import { z } from "zod";
-import {
-  collectionMetaSchema,
-  paginationQuerySchema,
-} from "./common.schemas";
+import { collectionMetaSchema, paginationQuerySchema } from "./common.schemas";
 
 export const permissionSchema = z.object({
   dashboard_id: z.number(),
