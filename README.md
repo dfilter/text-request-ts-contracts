@@ -13,7 +13,7 @@ import { textRequestClient } from "@dfilter/text-request-ts-contracts"
 const textRequestClient = initClient(textRequestClient, {
   baseUrl: 'https://api.textrequest.com',
   baseHeaders: {
-    "X-API_KEY": "your-api-key-here",
+    "X-API-KEY": "your-api-key-here",
   },
 });
 
