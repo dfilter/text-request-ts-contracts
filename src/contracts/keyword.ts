@@ -3,7 +3,6 @@ import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   paginationQuerySchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   createKeywordSchema,
@@ -42,7 +41,7 @@ const keywordContract = contract.router({
     pathParams: keywordPathParamSchema,
     responses: {
       200: keywordSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
   },
@@ -62,10 +61,10 @@ const keywordContract = contract.router({
     path: "/dashboards/:dashboard_id/keywords/:keyword_id",
     pathParams: keywordPathParamSchema,
     responses: {
-      204: unknownResponseSchema,
-      400: unknownResponseSchema,
+      204: contract.noBody(),
+      400: contract.noBody(),
       401: errorResponseSchema,
-      404: unknownResponseSchema,
+      404: contract.noBody(),
     },
   },
 });

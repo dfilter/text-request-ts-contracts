@@ -2,7 +2,6 @@ import { initContract } from "@ts-rest/core";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   campaignCollectionSchema,
@@ -43,7 +42,7 @@ const reviewContract = contract.router({
     pathParams: campaignPathParamSchema,
     responses: {
       200: campaignSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
   },

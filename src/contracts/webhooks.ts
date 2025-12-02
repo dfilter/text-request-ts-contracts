@@ -1,17 +1,16 @@
 import { initContract } from "@ts-rest/core";
 import {
-  eventTypeSchema,
-  webhookCreateSchema,
-  webhookPathParams,
-  webhookSchema,
-  webhookCollectionSchema,
-} from "../lib/zod/webhook.schemas";
-import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   paginationQuerySchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
+import {
+  eventTypeSchema,
+  webhookCollectionSchema,
+  webhookCreateSchema,
+  webhookPathParams,
+  webhookSchema,
+} from "../lib/zod/webhook.schemas";
 
 const contract = initContract();
 
@@ -52,7 +51,7 @@ const webhookContract = contract.router({
     pathParams: webhookPathParams,
     body: contract.noBody(),
     responses: {
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
   },
@@ -61,7 +60,7 @@ const webhookContract = contract.router({
     path: "/dashboards/:dashboard_id/hooks/:webhook_id",
     pathParams: webhookPathParams,
     responses: {
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       400: errorResponseSchema,
       401: errorResponseSchema,
     },

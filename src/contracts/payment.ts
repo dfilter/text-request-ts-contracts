@@ -2,7 +2,6 @@ import { initContract } from "@ts-rest/core";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   activatePaymentSchema,
@@ -76,7 +75,7 @@ const paymentContract = contract.router({
     pathParams: dashboardIdPathParamsSchema,
     query: paymentQuerySchema,
     responses: {
-      200: unknownResponseSchema,
+      200: contract.noBody(),
       400: errorResponseSchema,
       401: errorResponseSchema,
     },
@@ -87,7 +86,7 @@ const paymentContract = contract.router({
     pathParams: paymentPathParamSchema,
     responses: {
       200: paymentSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       400: errorResponseSchema,
       401: errorResponseSchema,
     },

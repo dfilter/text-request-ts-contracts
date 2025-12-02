@@ -33,8 +33,6 @@ export const errorResponseSchema = z.object({
 });
 export type ErrorResponse = z.infer<typeof errorResponseSchema>;
 
-export const unknownResponseSchema = z.unknown();
-
 export const collectionMetaSchema = z.object({
   page: z.number(),
   page_size: z.number(),

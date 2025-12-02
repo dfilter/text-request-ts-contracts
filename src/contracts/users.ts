@@ -1,4 +1,5 @@
 import { initContract } from "@ts-rest/core";
+import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
   createUserSchema,
   userCollectionSchema,
@@ -6,10 +7,6 @@ import {
   userQuerySchema,
   userSchema,
 } from "../lib/zod/user.schemas";
-import {
-  errorResponseSchema,
-  unknownResponseSchema,
-} from "../lib/zod/common.schemas";
 
 const contract = initContract();
 
@@ -39,7 +36,7 @@ const userContract = contract.router({
     pathParams: userIdPathParamSchema,
     responses: {
       200: userSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
   },
@@ -59,9 +56,9 @@ const userContract = contract.router({
     path: "/users/:user_id",
     pathParams: userIdPathParamSchema,
     responses: {
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
-      404: unknownResponseSchema,
+      404: contract.noBody(),
     },
   },
 });
