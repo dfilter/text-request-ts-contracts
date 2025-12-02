@@ -1,6 +1,6 @@
 {
   "name": "text-request-ts-contracts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Type-safe HTTP contracts for Text Request API using zod and ts-rest.",
   "type": "module",
   "license": "MIT",
