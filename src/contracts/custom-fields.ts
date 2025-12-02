@@ -50,7 +50,7 @@ const customFieldContract = contract.router(
     },
     update: {
       method: "PUT",
-      path: "/:dashboard_id/fields/:fieldId",
+      path: "/:dashboard_id/fields/:field_id",
       pathParams: dashboardIdFieldIdPathParamsSchema,
       body: customFieldSchema.omit({ id: true }),
       responses: {
@@ -63,7 +63,7 @@ const customFieldContract = contract.router(
     },
     delete: {
       method: "DELETE",
-      path: "/:dashboard_id/fields/:fieldId",
+      path: "/:dashboard_id/fields/:field_id",
       pathParams: dashboardIdFieldIdPathParamsSchema,
       responses: {
         204: unknownResponseSchema,
