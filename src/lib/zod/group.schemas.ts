@@ -27,6 +27,6 @@ export const groupCollectionSchema = z.object({
 export type GroupCollection = z.infer<typeof groupCollectionSchema>;
 
 export const groupParamSchema = dashboardIdPathParamsSchema.extend({
-  groupId: z.number(),
+  group_id: z.number(),
 });
 export type GroupParam = z.infer<typeof groupParamSchema>;

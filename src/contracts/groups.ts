@@ -3,7 +3,6 @@ import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
   paginationQuerySchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   createGroupSchema,
@@ -43,11 +42,11 @@ const groupContract = contract.router(
     },
     get: {
       method: "GET",
-      path: "/:dashboard_id/groups/:groupId",
+      path: "/:dashboard_id/groups/:group_id",
       pathParams: groupParamSchema,
       responses: {
         200: groupSchema,
-        204: unknownResponseSchema,
+        204: contract.noBody(),
         401: errorResponseSchema,
       },
       summary: "Retrieves the group with the specified id.",
@@ -55,13 +54,13 @@ const groupContract = contract.router(
     },
     delete: {
       method: "DELETE",
-      path: "/:dashboard_id/groups/:groupId",
+      path: "/:dashboard_id/groups/:group_id",
       pathParams: groupParamSchema,
       responses: {
-        204: unknownResponseSchema,
-        400: unknownResponseSchema,
+        204: contract.noBody(),
+        400: contract.noBody(),
         401: errorResponseSchema,
-        404: unknownResponseSchema,
+        404: contract.noBody(),
       },
       summary: "Deletes the group with the specified id.",
       description:
@@ -69,12 +68,12 @@ const groupContract = contract.router(
     },
     put: {
       method: "PUT",
-      path: "/:dashboard_id/groups/:groupId",
+      path: "/:dashboard_id/groups/:group_id",
       pathParams: groupParamSchema,
       body: createGroupSchema,
       responses: {
         200: groupSchema,
-        400: unknownResponseSchema,
+        400: errorResponseSchema,
         401: errorResponseSchema,
       },
       summary: "Update a group with the given id",
