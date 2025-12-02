@@ -48,6 +48,16 @@ export const paginationQuerySchema = z
   .partial();
 export type PaginationQuery = z.infer<typeof paginationQuerySchema>;
 
+export const messagesPaginationQuerySchema = paginationQuerySchema
+  .extend({
+    start_date: z.date(),
+    end_date: z.date(),
+  })
+  .partial();
+export type MessagePaginationQuery = z.infer<
+  typeof messagesPaginationQuerySchema
+>;
+
 export const preprocessArrayToCommaSeparatedString = <T extends ZodSchema>(
   schema: T,
 ) =>

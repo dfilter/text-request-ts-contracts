@@ -3,6 +3,8 @@ import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
+  messagesPaginationQuerySchema,
+  paginationQuerySchema,
 } from "../lib/zod/common.schemas";
 import {
   createContactMessageSchema,
@@ -31,6 +33,7 @@ export const commonContract = contract.router({
     method: "GET",
     path: "/dashboards/:dashboard_id/contacts/:phone_number/messages",
     pathParams: dashboardIdPhoneNumberParamsSchema,
+    query: paginationQuerySchema,
     responses: {
       200: messageCollectionSchema,
       204: contract.noBody(),
@@ -44,6 +47,7 @@ export const commonContract = contract.router({
     method: "GET",
     path: "/dashboards/:dashboard_id/messages",
     pathParams: dashboardIdPathParamsSchema,
+    query: messagesPaginationQuerySchema,
     responses: {
       200: messageCollectionSchema,
       204: contract.noBody(),
