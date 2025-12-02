@@ -1,25 +1,22 @@
 import { initClient } from "@ts-rest/core";
-import { test, describe, expect, expectTypeOf, beforeAll } from "vitest";
-import { z } from "zod";
-
-import { env } from "./env";
-import { commonContract } from "../contracts/common";
+import { describe, expect, test } from "vitest";
+import { commonContract } from "../src/contracts/common";
 import {
-  contactSchema,
-  contactsCollectionSchema,
-} from "../lib/zod/contact.schemas";
-import { createContactMessageSchema } from "../lib/zod/message.schemas";
+  messageCollectionSchema,
+  messageSchema,
+} from "../src/lib/zod/message.schemas";
+import { env } from "./env";
 
 describe.concurrent("common contract", () => {
   const client = initClient(commonContract, {
     baseUrl: "https://api.textrequest.com/api/v3",
     baseHeaders: {
-      "X-API-KEY": env.API_KEY,
+      "X-API-KEY": env.API_TOKEN,
     },
   });
 
-  test("messageeContact", async () => {
-    const response = await client.messageeContact({
+  test("messageContact", async () => {
+    const response = await client.messageContact({
       params: {
         dashboard_id: env.DASHBOARD_ID,
         phone_number: env.PHONE_NUMBER,
@@ -30,10 +27,11 @@ describe.concurrent("common contract", () => {
       },
     });
 
-    const parseResult = createContactMessageSchema.safeParse(response.body);
-
     expect(response.status).toBe(200);
-    expect(parseResult.success).toBe(true);
+
+    const { success, error } = messageSchema.safeParse(response.body);
+    if (error) console.error(error);
+    expect(success).toBeTruthy();
   });
 
   test("contactMessageCollection should return contact for dashboard_id and phone_number", async () => {
@@ -44,10 +42,11 @@ describe.concurrent("common contract", () => {
       },
     });
 
-    const parseResult = contactSchema.safeParse(response.body);
-
     expect(response.status).toBe(200);
-    expect(parseResult.success).toBe(true);
+
+    const { error, success } = messageCollectionSchema.safeParse(response.body);
+    if (error) console.error(error);
+    expect(success).toBeTruthy();
   });
 
   test("dashboardMessageCollection", async () => {
@@ -55,9 +54,10 @@ describe.concurrent("common contract", () => {
       params: { dashboard_id: env.DASHBOARD_ID },
     });
 
-    const parseResult = contactsCollectionSchema.safeParse(response.body);
-
     expect(response.status).toBe(200);
-    expect(parseResult.success).toBe(true);
+
+    const { error, success } = messageCollectionSchema.safeParse(response.body);
+    if (error) console.error(error);
+    expect(success).toBeTruthy();
   });
 });

@@ -1,20 +1,21 @@
 import { initClient } from "@ts-rest/core";
-import { test, describe, expect } from "vitest";
-import { z } from "zod";
-
-import { env } from "./env";
+import { describe, expect, test } from "vitest";
+import contactContract from "../src/contracts/contacts";
 import {
   contactSchema,
   contactsCollectionSchema,
-} from "../lib/zod/contact.schemas";
-import contactContract from "../contracts/contacts";
+  fullContactSchema,
+} from "../src/lib/zod/contact.schemas";
+import { env } from "./env";
 
 describe.concurrent("contactContract contract", () => {
   const client = initClient(contactContract, {
     baseUrl: "https://api.textrequest.com/api/v3",
     baseHeaders: {
-      "X-API-KEY": env.API_KEY,
+      "X-API-KEY": env.API_TOKEN,
     },
+    validateResponse: true,
+    throwOnUnknownStatus: true,
   });
 
   test("get contact collection", async () => {
@@ -55,7 +56,7 @@ describe.concurrent("contactContract contract", () => {
       },
     });
 
-    const parseResult = contactsCollectionSchema.safeParse(response.body);
+    const parseResult = fullContactSchema.safeParse(response.body);
 
     expect(response.status).toBe(200);
     expect(parseResult.success).toBe(true);
