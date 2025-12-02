@@ -12,17 +12,21 @@ export const keywordSchema = z.object({
   response: z.string().nullable(),
   group_id: z.number().int().gt(0),
 });
+export type Keyword = z.infer<typeof keywordSchema>;
 
 export const keywordCollectionSchema = z.object({
   items: z.array(keywordSchema),
   meta: collectionMetaSchema,
 });
+export type KeywordCollection = z.infer<typeof keywordCollectionSchema>;
 
-export const createKeywordSchema = z.object({
+export const keywordCreateSchema = z.object({
   keyword_value: z.string().nonempty(),
   response: z.string().nonempty(),
 });
+export type KeywordCreate = z.infer<typeof keywordCreateSchema>;
 
 export const keywordPathParamSchema = dashboardIdPathParamsSchema.extend({
   keyword_id: z.number().int().gt(0),
 });
+export type KeywordPathParams = z.infer<typeof keywordPathParamSchema>;

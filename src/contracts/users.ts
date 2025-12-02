@@ -1,8 +1,8 @@
 import { initContract } from "@ts-rest/core";
 import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
-  createUserSchema,
   userCollectionSchema,
+  userCreateSchema,
   userIdPathParamSchema,
   userQuerySchema,
   userSchema,
@@ -14,7 +14,7 @@ const userContract = contract.router({
   create: {
     method: "POST",
     path: "/users",
-    body: createUserSchema,
+    body: userCreateSchema,
     responses: {
       200: userSchema,
       400: errorResponseSchema,

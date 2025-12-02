@@ -6,8 +6,10 @@ export const tagSchema = z.object({
   tag_color: z.string(),
   tag: z.string(),
 });
+export type Tag = z.infer<typeof tagSchema>;
 
 export const tagCollectionSchema = z.object({
   items: z.array(tagSchema),
   meta: collectionMetaSchema,
 });
+export type tagCollection = z.infer<typeof tagCollectionSchema>;

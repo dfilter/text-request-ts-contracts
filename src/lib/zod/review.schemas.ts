@@ -11,10 +11,13 @@ export const reviewQuerySchema = paginationQuerySchema
     end_daet: z.date(),
   })
   .partial();
+export type ReviewQuery = z.infer<typeof reviewQuerySchema>;
 
 export const platform = z.enum(["Google", "Facebook", "Text Request"]);
+export type Platform = z.infer<typeof platform>;
 
 export const source = z.enum(["organic", "requested"]);
+export type Source = z.infer<typeof source>;
 
 export const reviewSchema = z.object({
   id: z.number(),
@@ -30,17 +33,20 @@ export const reviewSchema = z.object({
   campaign_id: z.number().nullable(),
   campaign_name: z.string().nullable(),
 });
+export type Review = z.infer<typeof reviewSchema>;
 
 export const reviewCollectionSchema = z.object({
   items: z.array(reviewSchema),
   meta: collectionMetaSchema,
 });
+export type ReviewCollection = z.infer<typeof reviewCollectionSchema>;
 
 export const campaignQuerySchema = paginationQuerySchema
   .extend({
     include_archived: z.boolean(),
   })
   .partial();
+export type CampaignQuery = z.infer<typeof campaignQuerySchema>;
 
 export const campaignSchema = z.object({
   id: z.number(),
@@ -49,12 +55,15 @@ export const campaignSchema = z.object({
   date_created: z.coerce.date(),
   is_archived: z.boolean(),
 });
+export type Campaign = z.infer<typeof campaignSchema>;
 
 export const campaignCollectionSchema = z.object({
   items: z.array(campaignSchema),
   meta: collectionMetaSchema,
 });
+export type CampaignCollection = z.infer<typeof campaignCollectionSchema>;
 
 export const campaignPathParamSchema = dashboardIdPathParamsSchema.extend({
   campaign_id: z.number().int().gt(0),
 });
+export type CampaignPathParam = z.infer<typeof campaignPathParamSchema>;

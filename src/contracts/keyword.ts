@@ -5,8 +5,8 @@ import {
   paginationQuerySchema,
 } from "../lib/zod/common.schemas";
 import {
-  createKeywordSchema,
   keywordCollectionSchema,
+  keywordCreateSchema,
   keywordPathParamSchema,
   keywordSchema,
 } from "../lib/zod/keyword.schemas";
@@ -18,7 +18,7 @@ const keywordContract = contract.router({
     method: "POST",
     path: "/dashboards/:dashboard_id/keywords",
     pathParams: dashboardIdPathParamsSchema,
-    body: createKeywordSchema,
+    body: keywordCreateSchema,
     responses: {
       200: keywordSchema,
       400: errorResponseSchema,
@@ -49,7 +49,7 @@ const keywordContract = contract.router({
     method: "PUT",
     path: "/dashboards/:dashboard_id/keywords/:keyword_id",
     pathParams: keywordPathParamSchema,
-    body: createKeywordSchema,
+    body: keywordCreateSchema,
     responses: {
       200: keywordSchema,
       400: errorResponseSchema,

@@ -6,7 +6,11 @@ import {
 } from "./common.schemas";
 
 export const sortTypeSchema = z.enum(["amount", "contact", "date", "status"]);
+export type SortType = z.infer<typeof sortTypeSchema>;
+
 export const sortDirection = z.enum(["asc", "desc"]);
+export type SortDirection = z.infer<typeof sortDirection>;
+
 export const transactionStatus = z.enum([
   "Unknown",
   "Approved",
@@ -18,6 +22,8 @@ export const transactionStatus = z.enum([
   "Authorized",
   "PaymentInProgress",
 ]);
+export type TransactionStatus = z.infer<typeof transactionStatus>;
+
 export const textrequestPaymentStatus = z.enum([
   "Unknown",
   "Sent",
@@ -27,6 +33,7 @@ export const textrequestPaymentStatus = z.enum([
   "PastDue",
   "MarkedAsPaid",
 ]);
+export type TextRequestPaymentStatus = z.infer<typeof textrequestPaymentStatus>;
 
 export const paymentQuerySchema = paginationQuerySchema
   .extend({
@@ -36,6 +43,7 @@ export const paymentQuerySchema = paginationQuerySchema
     sort_direction: sortDirection,
   })
   .partial();
+export type PaymentQuery = z.infer<typeof paymentQuerySchema>;
 
 export const paymentSchema = z.object({
   payment_id: z.number(),
@@ -50,11 +58,13 @@ export const paymentSchema = z.object({
   textrequest_payment_status: textrequestPaymentStatus,
   reference_number: z.string(),
 });
+export type Payment = z.infer<typeof paymentSchema>;
 
 export const paymentCollectionSchema = z.object({
   items: z.array(paymentSchema),
   meta: collectionMetaSchema,
 });
+export type PaymentCollection = z.infer<typeof paymentCollectionSchema>;
 
 export const paymentCreateSchema = z.object({
   message: z.string().nonempty(),
@@ -63,9 +73,12 @@ export const paymentCreateSchema = z.object({
   amount_requested: z.number().gt(0),
   reference_number: z.string().nonempty(),
 });
+export type PaymentCreate = z.infer<typeof paymentCreateSchema>;
 
 export const paymentPathParamSchema = dashboardIdPathParamsSchema.extend({
   payment_id: z.number().int().gt(0),
 });
+export type PaymentPathParam = z.infer<typeof paymentPathParamSchema>;
 
 export const activatePaymentSchema = z.object({ active: z.boolean() });
+export type ActivePayment = z.infer<typeof activatePaymentSchema>;

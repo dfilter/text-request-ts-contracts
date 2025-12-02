@@ -7,7 +7,7 @@ import {
   paginationQuerySchema,
 } from "../lib/zod/common.schemas";
 import {
-  createContactMessageSchema,
+  contactMessageCreateSchema,
   messageCollectionSchema,
   messageSchema,
 } from "../lib/zod/message.schemas";
@@ -19,7 +19,7 @@ export const commonContract = contract.router({
     method: "POST",
     path: "/dashboards/:dashboard_id/contacts/:phone_number/messages",
     pathParams: dashboardIdPhoneNumberParamsSchema,
-    body: createContactMessageSchema,
+    body: contactMessageCreateSchema,
     responses: {
       200: messageSchema,
       400: errorResponseSchema,

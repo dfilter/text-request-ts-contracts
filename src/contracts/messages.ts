@@ -1,7 +1,7 @@
 import { initContract } from "@ts-rest/core";
 import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
-  createMessageResponseSchema,
+  messageCreateResponseSchema,
   messageCreateSchema,
   messageIdParamSchema,
   mmsErrorMessageSchema,
@@ -32,7 +32,7 @@ const messageContract = contract.router({
     path: "/messages",
     body: messageCreateSchema,
     responses: {
-      200: createMessageResponseSchema,
+      200: messageCreateResponseSchema,
       400: errorResponseSchema,
       401: errorResponseSchema,
     },
