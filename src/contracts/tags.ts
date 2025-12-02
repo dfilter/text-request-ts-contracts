@@ -4,7 +4,6 @@ import {
   dashboardIdTagIdPathParamSchema,
   errorResponseSchema,
   paginationQuerySchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import { tagCollectionSchema, tagSchema } from "../lib/zod/tag.schemas";
 
@@ -31,7 +30,7 @@ const tagContract = contract.router(
       pathParams: dashboardIdTagIdPathParamSchema,
       responses: {
         200: tagSchema,
-        204: unknownResponseSchema,
+        204: contract.noBody(),
         401: errorResponseSchema,
       },
       summary: "Retrieves the tag with the specified id.",
@@ -40,7 +39,7 @@ const tagContract = contract.router(
     },
     collection: {
       method: "GET",
-      path: "/:dashboard_id/tags/:tag_id",
+      path: "/:dashboard_id/tags",
       pathParams: dashboardIdPathParamsSchema,
       query: paginationQuerySchema,
       responses: {
@@ -68,10 +67,10 @@ const tagContract = contract.router(
       path: "/:dashboard_id/tags/:tag_id",
       pathParams: dashboardIdPathParamsSchema,
       responses: {
-        204: unknownResponseSchema,
-        400: unknownResponseSchema,
+        204: contract.noBody(),
+        400: contract.noBody(),
         401: errorResponseSchema,
-        404: unknownResponseSchema,
+        404: contract.noBody(),
       },
       summary: "Deletes the tag with the specified id.",
       description:
