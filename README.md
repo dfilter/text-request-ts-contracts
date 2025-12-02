@@ -8,7 +8,7 @@ Creating a client:
 
 ```typescript
 import { initClient } from "@ts-rest/core";
-import { textRequestClient } from "@dfilter/text-request-ts-contracts"
+import { textRequestClient } from "text-request-ts-contracts"
 
 const textRequestClient = initClient(textRequestClient, {
   baseUrl: 'https://api.textrequest.com',
@@ -35,7 +35,7 @@ If you need to create a test server or something:
 import { createExpressEndpoints, initServer } from '@ts-rest/express';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import { textRequestClient } from "@dfilter/text-request-ts-contracts";
+import { textRequestClient } from "text-request-ts-contracts";
 import db from "./db";
 
 const app = express();
