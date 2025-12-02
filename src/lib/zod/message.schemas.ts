@@ -80,4 +80,4 @@ export const messageQuerySchema = paginationQuerySchema
   })
   .optional();
 
-export const messageIdParamSchema = z.object({ messageId: z.string() });
+export const messageIdParamSchema = z.object({ message_id: z.string() });

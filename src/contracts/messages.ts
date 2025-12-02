@@ -1,4 +1,5 @@
 import { initContract } from "@ts-rest/core";
+import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
   createMessageResponseSchema,
   messageCreateSchema,
@@ -6,10 +7,6 @@ import {
   mmsErrorMessageSchema,
   mmsResponseSchema,
 } from "../lib/zod/message.schemas";
-import {
-  errorResponseSchema,
-  unknownResponseSchema,
-} from "../lib/zod/common.schemas";
 import { commonContract } from "./common";
 
 const contract = initContract();
@@ -47,11 +44,11 @@ const messageContract = contract.router({
   collection: commonContract.dashboardMessageCollection,
   redact: {
     method: "PUT",
-    path: "/messages/:messageId/redact",
+    path: "/messages/:message_id/redact",
     pathParams: messageIdParamSchema,
     body: contract.noBody(),
     responses: {
-      200: unknownResponseSchema,
+      200: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Redact a message",
@@ -60,11 +57,11 @@ const messageContract = contract.router({
   },
   unredact: {
     method: "PUT",
-    path: "/messages/:messageId/unredact",
+    path: "/messages/:message_id/unredact",
     pathParams: messageIdParamSchema,
     body: contract.noBody(),
     responses: {
-      200: unknownResponseSchema,
+      200: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Unredact a message",
