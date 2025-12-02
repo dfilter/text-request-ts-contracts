@@ -9,7 +9,7 @@ export const dashboardSchema = z.object({
 export type Dashboard = z.infer<typeof dashboardSchema>;
 
 export const dashboardCollectionSchema = z.object({
-  item: z.array(dashboardSchema),
+  items: z.array(dashboardSchema),
   meta: collectionMetaSchema,
 });
 export type DashboardCollection = z.infer<typeof dashboardCollectionSchema>;
