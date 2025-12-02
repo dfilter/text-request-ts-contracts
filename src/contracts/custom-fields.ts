@@ -26,7 +26,7 @@ const customFieldContract = contract.router(
     },
     get: {
       method: "GET",
-      path: "/:dashboard_id/fields/:fieldId",
+      path: "/:dashboard_id/fields/:field_id",
       pathParams: dashboardIdFieldIdPathParamsSchema,
       responses: {
         200: customFieldSchema,
