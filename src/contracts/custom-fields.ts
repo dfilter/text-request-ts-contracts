@@ -3,7 +3,6 @@ import {
   dashboardIdFieldIdPathParamsSchema,
   dashboardIdPathParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import { customFieldSchema } from "../lib/zod/custom-field.schemas";
 
@@ -30,7 +29,7 @@ const customFieldContract = contract.router(
       pathParams: dashboardIdFieldIdPathParamsSchema,
       responses: {
         200: customFieldSchema,
-        204: unknownResponseSchema,
+        204: contract.noBody(),
         401: errorResponseSchema,
       },
       summary: "Retrieves the custom field with the specified id.",
@@ -42,7 +41,6 @@ const customFieldContract = contract.router(
       pathParams: dashboardIdPathParamsSchema,
       responses: {
         200: customFieldSchema.array(),
-        204: unknownResponseSchema,
         401: errorResponseSchema,
       },
       summary: "Retrieves all custom fields.",
@@ -66,10 +64,10 @@ const customFieldContract = contract.router(
       path: "/:dashboard_id/fields/:field_id",
       pathParams: dashboardIdFieldIdPathParamsSchema,
       responses: {
-        204: unknownResponseSchema,
-        400: unknownResponseSchema,
+        204: contract.noBody(),
+        400: contract.noBody(),
         401: errorResponseSchema,
-        404: unknownResponseSchema,
+        404: contract.noBody(),
       },
     },
   },

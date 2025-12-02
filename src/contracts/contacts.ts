@@ -1,18 +1,16 @@
 import { initContract } from "@ts-rest/core";
-
-import {
-  contactQueryParamsSchema,
-  fullContactSchema,
-  contactsCollectionSchema,
-  contactSchema,
-  contactUpdateFields,
-} from "../lib/zod/contact.schemas";
 import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
+import {
+  contactQueryParamsSchema,
+  contactSchema,
+  contactsCollectionSchema,
+  contactUpdateFields,
+  fullContactSchema,
+} from "../lib/zod/contact.schemas";
 
 const contract = initContract();
 
@@ -68,7 +66,7 @@ const contactContract = contract.router(
       pathParams: dashboardIdPhoneNumberParamsSchema,
       responses: {
         200: fullContactSchema,
-        204: unknownResponseSchema,
+        204: contract.noBody(),
         401: errorResponseSchema,
       },
       summary: "Retrieves the contact with the specified phone number.",
@@ -93,10 +91,10 @@ const contactContract = contract.router(
       path: "/:dashboard_id/contacts/:phone_number",
       pathParams: dashboardIdPhoneNumberParamsSchema,
       responses: {
-        200: unknownResponseSchema,
-        400: unknownResponseSchema,
+        200: contract.noBody(),
+        400: contract.noBody(),
         401: errorResponseSchema,
-        404: unknownResponseSchema,
+        404: contract.noBody(),
       },
       summary: "Deletes the contact with the specified phone number.",
       description:

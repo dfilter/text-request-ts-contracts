@@ -3,7 +3,6 @@ import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   createContactMessageSchema,
@@ -34,7 +33,7 @@ export const commonContract = contract.router({
     pathParams: dashboardIdPhoneNumberParamsSchema,
     responses: {
       200: messageCollectionSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Get a conversation's messages by contact phone.",
@@ -47,7 +46,7 @@ export const commonContract = contract.router({
     pathParams: dashboardIdPathParamsSchema,
     responses: {
       200: messageCollectionSchema,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Get all messages for a dashboard.",

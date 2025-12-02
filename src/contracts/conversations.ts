@@ -3,7 +3,6 @@ import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
   errorResponseSchema,
-  unknownResponseSchema,
 } from "../lib/zod/common.schemas";
 import {
   conversationCollection,
@@ -22,7 +21,7 @@ const conversationContract = contract.router({
     query: conversationQuerySchema,
     responses: {
       200: conversationCollection,
-      204: unknownResponseSchema,
+      204: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Retrieves all conversations for this dashboard.",
@@ -37,7 +36,7 @@ const conversationContract = contract.router({
     pathParams: dashboardIdPhoneNumberParamsSchema,
     body: contract.noBody(),
     responses: {
-      200: unknownResponseSchema,
+      200: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Archive a Conversation",
@@ -50,7 +49,7 @@ const conversationContract = contract.router({
     pathParams: dashboardIdPhoneNumberParamsSchema,
     body: contract.noBody(),
     responses: {
-      200: unknownResponseSchema,
+      200: contract.noBody(),
       401: errorResponseSchema,
     },
     summary: "Unarchive a Conversation",
