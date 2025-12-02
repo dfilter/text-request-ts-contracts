@@ -13,7 +13,7 @@ import { commonContract } from "./common";
 const contract = initContract();
 
 const conversationContract = contract.router({
-  create: commonContract.messageContact,
+  ...commonContract,
   collection: {
     method: "GET",
     path: "/dashboards/:dashboard_id/conversations",
@@ -28,8 +28,6 @@ const conversationContract = contract.router({
     description:
       "Retrieves the last message across all conversations in this dashboard.",
   },
-  contactCollection: commonContract.contactMessageCollection,
-  dashboardMessageCollection: commonContract.dashboardMessageCollection,
   archive: {
     method: "PUT",
     path: "/dashboards/:dashboard_id/contacts/:phone_number/conversations/archive",

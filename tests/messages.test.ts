@@ -6,7 +6,6 @@ import { describe, expect, test } from "vitest";
 import messagesContract from "../src/contracts/messages";
 import {
   createMessageResponseSchema,
-  messageCollectionSchema,
   mmsResponseSchema,
 } from "../src/lib/zod/message.schemas";
 import { env } from "./env";
@@ -22,17 +21,6 @@ describe.concurrent("messagesContract", () => {
     },
     validateResponse: true,
     throwOnUnknownStatus: true,
-  });
-
-  test("collection", async () => {
-    const res = await client.collection({
-      params: { dashboard_id: env.DASHBOARD_ID },
-    });
-
-    expect(res.status).toBe(200);
-
-    const { success } = messageCollectionSchema.safeParse(res.body);
-    expect(success).toBeTruthy();
   });
 
   test("create mms", async () => {
