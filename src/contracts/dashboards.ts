@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
@@ -10,8 +10,6 @@ import {
   provisioningQuerySchema,
   provisioningResponseSchema,
 } from "../lib/zod/dashboard.schemas";
-
-const contract = initContract();
 
 const dashboardContract = contract.router({
   create: {

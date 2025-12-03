@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   dashboardIdPhoneNumberParamsSchema,
@@ -9,8 +9,6 @@ import {
   conversationQuerySchema,
 } from "../lib/zod/conversation.schemas";
 import { commonContract } from "./common";
-
-const contract = initContract();
 
 const conversationContract = contract.router({
   ...commonContract,

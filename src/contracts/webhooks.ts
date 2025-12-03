@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
@@ -11,8 +11,6 @@ import {
   webhookPathParams,
   webhookSchema,
 } from "../lib/zod/webhook.schemas";
-
-const contract = initContract();
 
 const webhookContract = contract.router({
   create: {

@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
   userCollectionSchema,
@@ -7,8 +7,6 @@ import {
   userQuerySchema,
   userSchema,
 } from "../lib/zod/user.schemas";
-
-const contract = initContract();
 
 const userContract = contract.router({
   create: {

@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   dashboardIdTagIdPathParamSchema,
@@ -6,8 +6,6 @@ import {
   paginationQuerySchema,
 } from "../lib/zod/common.schemas";
 import { tagCollectionSchema, tagSchema } from "../lib/zod/tag.schemas";
-
-const contract = initContract();
 
 const tagContract = contract.router(
   {

@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
@@ -10,8 +10,6 @@ import {
   groupParamSchema,
   groupSchema,
 } from "../lib/zod/group.schemas";
-
-const contract = initContract();
 
 const groupContract = contract.router(
   {

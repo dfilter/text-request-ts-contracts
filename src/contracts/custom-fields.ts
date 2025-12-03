@@ -1,12 +1,10 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdFieldIdPathParamsSchema,
   dashboardIdPathParamsSchema,
   errorResponseSchema,
 } from "../lib/zod/common.schemas";
 import { customFieldSchema } from "../lib/zod/custom-field.schemas";
-
-const contract = initContract();
 
 const customFieldContract = contract.router(
   {

@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import {
   dashboardIdPathParamsSchema,
   errorResponseSchema,
@@ -10,8 +10,6 @@ import {
   paymentQuerySchema,
   paymentSchema,
 } from "../lib/zod/payment.schema";
-
-const contract = initContract();
 
 const paymentContract = contract.router({
   create: {

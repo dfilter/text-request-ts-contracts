@@ -1,4 +1,4 @@
-import { initContract } from "@ts-rest/core";
+import { contract } from "../lib/ts-rest";
 import { errorResponseSchema } from "../lib/zod/common.schemas";
 import {
   messageCreateResponseSchema,
@@ -8,8 +8,6 @@ import {
   mmsResponseSchema,
 } from "../lib/zod/message.schemas";
 import { commonContract } from "./common";
-
-const contract = initContract();
 
 const messageContract = contract.router({
   ...commonContract,
