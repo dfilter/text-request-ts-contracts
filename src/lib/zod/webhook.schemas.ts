@@ -3,6 +3,7 @@ import {
   collectionMetaSchema,
   dashboardIdPathParamsSchema,
 } from "./common.schemas";
+import { messageDirection, messageStatusEnum } from "./message.schemas";
 
 export const eventTypeSchema = z.array(z.string());
 export type EventType = z.infer<typeof eventTypeSchema>;
@@ -49,3 +50,42 @@ export const webhookPathParams = dashboardIdPathParamsSchema.extend({
   webhook_id: z.number().int().gt(0),
 });
 export type WebhookPathParams = z.infer<typeof webhookPathParams>;
+
+export const msg_received_schema = z.object({
+  messageUniqueIdentifier: z.string().uuid(),
+  account: z.object({
+    id: z.number().int(),
+    externalAccountId: z.string().nullable().optional(),
+  }),
+  yourPhoneNumber: z.object({
+    id: z.number().int(),
+    externalPhoneId: z.string().nullable().optional(),
+    description: z.string(),
+    phoneNumber: z.string(),
+  }),
+  conversation: z.object({
+    id: z.number().int(),
+    date: z.coerce.date(),
+    status: messageStatusEnum.nullable(),
+    consumerPhoneNumber: z.string(),
+    messageDirection,
+    message: z.string(),
+    numSegments: z.number().int(),
+    consumerFriendlyName: z.string().nullable(),
+    mmsAttachments: z
+      .object({
+        mimeType: z.string(),
+        url: z.string(),
+      })
+      .array(),
+  }),
+});
+export type MessageReceived = z.infer<typeof msg_received_schema>;
+
+export const contact_created_schema = z.object({
+  ContactId: z.number(),
+  LocationPhoneNumber: z.string(),
+  ContactPhoneNumber: z.string(),
+  ContactFriendlyName: z.string().nullable(),
+});
+export type ContactCreated = z.infer<typeof contact_created_schema>;
