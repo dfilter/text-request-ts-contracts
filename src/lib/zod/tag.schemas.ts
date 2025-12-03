@@ -12,4 +12,4 @@ export const tagCollectionSchema = z.object({
   items: z.array(tagSchema),
   meta: collectionMetaSchema,
 });
-export type tagCollection = z.infer<typeof tagCollectionSchema>;
+export type TagCollection = z.infer<typeof tagCollectionSchema>;
