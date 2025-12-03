@@ -8,6 +8,7 @@ import keywordContract from "./keyword";
 import messageContract from "./messages";
 import paymentContract from "./payment";
 import reviewContract from "./reviews";
+import tagContract from "./tags";
 import userContract from "./users";
 import webhookContract from "./webhooks";
 
@@ -16,15 +17,16 @@ const contract = initContract();
 export const textRequestContract = contract.router(
   {
     contact: contactContract,
-    customField: customFieldContract,
-    message: messageContract,
-    group: groupContract,
-    dashboard: dashboardContract,
     conversation: conversationContract,
-    user: userContract,
+    customField: customFieldContract,
+    dashboard: dashboardContract,
+    group: groupContract,
     keyword: keywordContract,
+    message: messageContract,
     payment: paymentContract,
     review: reviewContract,
+    tag: tagContract,
+    user: userContract,
     webhook: webhookContract,
   },
   {
@@ -34,14 +36,15 @@ export const textRequestContract = contract.router(
 
 export {
   contactContract,
-  customFieldContract,
-  messageContract,
-  groupContract,
-  dashboardContract,
   conversationContract,
-  userContract,
+  customFieldContract,
+  dashboardContract,
+  groupContract,
   keywordContract,
+  messageContract,
   paymentContract,
   reviewContract,
+  tagContract,
+  userContract,
   webhookContract,
 };
