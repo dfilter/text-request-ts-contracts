@@ -5,7 +5,7 @@ import { initClient } from "@ts-rest/core";
 import { describe, expect, test } from "vitest";
 import messagesContract from "../src/contracts/messages";
 import {
-  createMessageResponseSchema,
+  messageCreateResponseSchema,
   mmsResponseSchema,
 } from "../src/lib/zod/message.schemas";
 import { env } from "./env";
@@ -58,7 +58,7 @@ describe.concurrent("messagesContract", () => {
         messageId = res.body.message_id;
       }
 
-      const { success } = createMessageResponseSchema.safeParse(res.body);
+      const { success } = messageCreateResponseSchema.safeParse(res.body);
       expect(success).toBeTruthy();
     });
 
